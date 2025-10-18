@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPU Rent Online - Affordable Tesla P40 GPU Rentals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: rgba(255,255,255,0.95);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+        
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .features {
+            background: white;
+            padding: 60px 20px;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .pricing {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+        
+        .pricing h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .pricing-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            position: relative;
+        }
+        
+        .badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: #ff6b6b;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .package-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0;
+        }
+        
+        .price-detail {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        
+        .features-list {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .features-list li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .specs {
+            background: white;
+            padding: 60px 20px;
+        }
+        
+        .specs h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #667eea;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .spec-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .spec-label {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 60px 20px;
+            color: white;
+        }
+        
+        .contact h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: #ff6b6b;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-button:hover {
+            background: #ee5a52;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .promo-banner {
+            background: #ff6b6b;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="promo-banner">
+        🎉 Special Launch Offer: 50% OFF First Week for Early Adopters! 🎉
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">⚡ GPU-Rent.Online</div>
+                <a href="#contact" class="cta-button" style="padding: 10px 25px; font-size: 16px;">Get Started</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Premium GPU Rentals</h1>
+            <p>Tesla P40 GPUs starting at $0.10/hour</p>
+            <a href="#pricing" class="cta-button">View Pricing</a>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose Us?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Affordable Pricing</h3>
+                    <p>Starting at just $0.10/hour or save with monthly plans</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>High Performance</h3>
+                    <p>Tesla P40 with 24GB VRAM for demanding workloads</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Low Latency</h3>
+                    <p>Tunisia datacenter with excellent EMEA connectivity</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Pre-configured</h3>
+                    <p>PyTorch, TensorFlow, and CUDA ready to use</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Email, WhatsApp, and Telegram support available</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Access</h3>
+                    <p>SSH and Docker with full root privileges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Choose Your Package</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="package-name">Package A - Student</div>
+                    <div class="price">$0.10<span style="font-size: 18px;">/hour</span></div>
+                    <div class="price-detail">or $70/month (save 30%)</div>
+                    <ul class="features-list">
+                        <li>1x Tesla P40 (24GB VRAM)</li>
+                        <li>PyTorch & TensorFlow pre-installed</li>
+                        <li>SSH & Docker access</li>
+                        <li>Email support</li>
+                        <li>10TB bandwidth</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <span class="badge">POPULAR</span>
+                    <div class="package-name">Package B - Startup</div>
+                    <div class="price">$0.12<span style="font-size: 18px;">/hour</span></div>
+                    <div class="price-detail">or $135/month (save 25%)</div>
+                    <ul class="features-list">
+                        <li>2x Tesla P40 (48GB VRAM)</li>
+                        <li>Custom environment setup</li>
+                        <li>Root access</li>
+                        <li>Priority support (WhatsApp/Telegram)</li>
+                        <li>20TB bandwidth</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="package-name">Package C - Pro</div>
+                    <div class="price">$0.15<span style="font-size: 18px;">/hour</span></div>
+                    <div class="price-detail">or $200/month (save 20%)</div>
+                    <ul class="features-list">
+                        <li>3x Tesla P40 (72GB VRAM)</li>
+                        <li>Full customization</li>
+                        <li>95% SLA guarantee</li>
+                        <li>24/7 priority support</li>
+                        <li>Unlimited bandwidth</li>
+                        <li>Backup & snapshots included</li>
+                    </ul>
+                    <a href="#contact" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="specs">
+        <div class="container">
+            <h2>Technical Specifications</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <div class="spec-label">GPU Model</div>
+                    <div>NVIDIA Tesla P40</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">VRAM</div>
+                    <div>24GB GDDR5</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">CUDA Cores</div>
+                    <div>3840</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Performance</div>
+                    <div>9.4 TFLOPS</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Max CUDA</div>
+                    <div>12.4</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">CPU</div>
+                    <div>Xeon E5-2640 v4</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Network</div>
+                    <div>80 Mbps up/down</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Location</div>
+                    <div>Tunisia (EMEA)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get Started Today</h2>
+            <div class="contact-form">
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="package">Package Interest *</label>
+                        <select id="package" name="package" required>
+                            <option value="">Select a package</option>
+                            <option value="Package A">Package A - Student ($70/month)</option>
+                            <option value="Package B">Package B - Startup ($135/month)</option>
+                            <option value="Package C">Package C - Pro ($200/month)</option>
+                            <option value="Custom">Custom Requirements</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Send Inquiry</button>
+                </form>
+                
+                <div style="margin-top: 30px; text-align: center;">
+                    <p><strong>Email:</strong> sandrasandrita@gmail.com</p>
+                    <p><strong>Response Time:</strong> Within 24 hours</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 GPU-Rent.Online - Premium GPU Rental Services</p>
+            <p>Tunisia • Europe • Worldwide</p>
+        </div>
+    </footer>
+</body>
+</html>
