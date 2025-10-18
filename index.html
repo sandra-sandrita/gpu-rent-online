@@ -14,8 +14,8 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e0e0e0;
+            background: #0a0a0a;
         }
         
         .container {
@@ -25,9 +25,10 @@
         }
         
         header {
-            background: rgba(255,255,255,0.95);
+            background: #1a1a1a;
             padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            border-bottom: 2px solid #2196F3;
         }
         
         .header-content {
@@ -39,13 +40,14 @@
         .logo {
             font-size: 28px;
             font-weight: bold;
-            color: #667eea;
+            color: #2196F3;
         }
         
         .hero {
             text-align: center;
             padding: 80px 20px;
             color: white;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
         }
         
         .hero h1 {
@@ -61,22 +63,26 @@
         
         .cta-button {
             display: inline-block;
-            background: #ff6b6b;
+            background: #2196F3;
             color: white;
             padding: 15px 40px;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 5px;
             font-size: 18px;
             font-weight: bold;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            border: 2px solid #2196F3;
         }
         
         .cta-button:hover {
-            transform: scale(1.05);
+            background: #1976D2;
+            border-color: #1976D2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
         }
         
         .features {
-            background: white;
+            background: #0f0f0f;
             padding: 60px 20px;
         }
         
@@ -84,7 +90,7 @@
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
-            color: #667eea;
+            color: #2196F3;
         }
         
         .feature-grid {
@@ -97,14 +103,16 @@
         .feature-card {
             text-align: center;
             padding: 30px;
-            background: #f8f9fa;
+            background: #1a1a1a;
             border-radius: 10px;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            border: 1px solid #2a2a2a;
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+            border-color: #2196F3;
         }
         
         .feature-icon {
@@ -113,7 +121,7 @@
         }
         
         .pricing {
-            background: #f8f9fa;
+            background: #000000;
             padding: 60px 20px;
         }
         
@@ -121,7 +129,7 @@
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
-            color: #667eea;
+            color: #2196F3;
         }
         
         .pricing-grid {
@@ -131,20 +139,23 @@
         }
         
         .pricing-card {
-            background: white;
+            background: #1a1a1a;
             padding: 40px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            transition: all 0.3s;
+            border: 1px solid #2a2a2a;
         }
         
         .pricing-card:hover {
             transform: translateY(-10px);
+            border-color: #2196F3;
+            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.3);
         }
         
         .pricing-card.featured {
-            border: 3px solid #667eea;
+            border: 2px solid #2196F3;
             position: relative;
         }
         
@@ -152,7 +163,7 @@
             position: absolute;
             top: -15px;
             right: 20px;
-            background: #ff6b6b;
+            background: #FF6F00;
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -163,19 +174,19 @@
         .package-name {
             font-size: 24px;
             font-weight: bold;
-            color: #667eea;
+            color: #2196F3;
             margin-bottom: 10px;
         }
         
         .price {
             font-size: 36px;
             font-weight: bold;
-            color: #333;
+            color: #ffffff;
             margin: 20px 0;
         }
         
         .price-detail {
-            color: #666;
+            color: #999;
             font-size: 14px;
             margin-bottom: 30px;
         }
@@ -188,7 +199,8 @@
         
         .features-list li {
             padding: 10px 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #2a2a2a;
+            color: #ccc;
         }
         
         .features-list li:before {
@@ -199,7 +211,7 @@
         }
         
         .specs {
-            background: white;
+            background: #0f0f0f;
             padding: 60px 20px;
         }
         
@@ -207,7 +219,7 @@
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
-            color: #667eea;
+            color: #2196F3;
         }
         
         .specs-grid {
@@ -219,20 +231,21 @@
         }
         
         .spec-item {
-            background: #f8f9fa;
+            background: #1a1a1a;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
+            border: 1px solid #2a2a2a;
         }
         
         .spec-label {
             font-weight: bold;
-            color: #667eea;
+            color: #2196F3;
             margin-bottom: 10px;
         }
         
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #000000;
             padding: 60px 20px;
             color: white;
         }
@@ -246,9 +259,10 @@
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(255,255,255,0.1);
+            background: #1a1a1a;
             padding: 40px;
             border-radius: 10px;
+            border: 1px solid #2a2a2a;
         }
         
         .form-group {
@@ -266,7 +280,9 @@
         .form-group select {
             width: 100%;
             padding: 12px;
-            border: none;
+            border: 1px solid #2a2a2a;
+            background: #0f0f0f;
+            color: #fff;
             border-radius: 5px;
             font-size: 16px;
         }
@@ -278,30 +294,33 @@
         
         .submit-button {
             width: 100%;
-            background: #ff6b6b;
+            background: #2196F3;
             color: white;
             padding: 15px;
-            border: none;
+            border: 2px solid #2196F3;
             border-radius: 5px;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
         
         .submit-button:hover {
-            background: #ee5a52;
+            background: #1976D2;
+            border-color: #1976D2;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
         }
         
         footer {
-            background: #333;
-            color: white;
+            background: #0a0a0a;
+            color: #999;
             text-align: center;
             padding: 30px 20px;
+            border-top: 2px solid #2196F3;
         }
         
         .promo-banner {
-            background: #ff6b6b;
+            background: #FF6F00;
             color: white;
             text-align: center;
             padding: 15px;
