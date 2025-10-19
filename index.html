@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPU Rent Online - Affordable Tesla P40 GPU Rentals</title>
+    <title>GPU Rent Online - Tesla P40 & RTX 2060 GPU Rentals</title>
     <style>
         * {
             margin: 0;
@@ -29,6 +29,9 @@
             padding: 20px 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.5);
             border-bottom: 2px solid #2196F3;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
         
         .header-content {
@@ -45,20 +48,20 @@
         
         .hero {
             text-align: center;
-            padding: 80px 20px;
-            color: white;
+            padding: 60px 20px;
             background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
         }
         
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #2196F3;
         }
         
         .hero p {
             font-size: 24px;
             margin-bottom: 30px;
+            color: #ccc;
         }
         
         .cta-button {
@@ -76,48 +79,71 @@
         
         .cta-button:hover {
             background: #1976D2;
-            border-color: #1976D2;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
         }
         
-        .features {
+        .availability {
             background: #0f0f0f;
             padding: 60px 20px;
         }
         
-        .features h2 {
+        .availability h2 {
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
             color: #2196F3;
         }
         
-        .feature-grid {
+        .gpu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto 40px;
         }
         
-        .feature-card {
-            text-align: center;
-            padding: 30px;
+        .gpu-card {
             background: #1a1a1a;
+            padding: 25px;
             border-radius: 10px;
+            border: 2px solid #2a2a2a;
+            text-align: center;
             transition: all 0.3s;
-            border: 1px solid #2a2a2a;
         }
         
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(33, 150, 243, 0.3);
+        .gpu-card:hover {
             border-color: #2196F3;
         }
         
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
+        .gpu-status {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .status-available {
+            background: #4CAF50;
+            box-shadow: 0 0 10px #4CAF50;
+        }
+        
+        .status-busy {
+            background: #f44336;
+            box-shadow: 0 0 10px #f44336;
+        }
+        
+        .gpu-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2196F3;
+            margin: 15px 0 10px;
+        }
+        
+        .gpu-specs {
+            color: #999;
+            font-size: 14px;
         }
         
         .pricing {
@@ -134,7 +160,7 @@
         
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         
@@ -143,15 +169,13 @@
             padding: 40px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            border: 2px solid #2a2a2a;
             transition: all 0.3s;
-            border: 1px solid #2a2a2a;
         }
         
         .pricing-card:hover {
-            transform: translateY(-10px);
             border-color: #2196F3;
-            box-shadow: 0 15px 40px rgba(33, 150, 243, 0.3);
+            transform: translateY(-5px);
         }
         
         .pricing-card.featured {
@@ -210,42 +234,8 @@
             margin-right: 10px;
         }
         
-        .specs {
-            background: #0f0f0f;
-            padding: 60px 20px;
-        }
-        
-        .specs h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: #2196F3;
-        }
-        
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .spec-item {
-            background: #1a1a1a;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #2a2a2a;
-        }
-        
-        .spec-label {
-            font-weight: bold;
-            color: #2196F3;
-            margin-bottom: 10px;
-        }
-        
         .contact {
-            background: #000000;
+            background: #0f0f0f;
             padding: 60px 20px;
             color: white;
         }
@@ -254,6 +244,7 @@
             text-align: center;
             font-size: 36px;
             margin-bottom: 50px;
+            color: #2196F3;
         }
         
         .contact-form {
@@ -273,6 +264,7 @@
             display: block;
             margin-bottom: 5px;
             font-weight: bold;
+            color: #2196F3;
         }
         
         .form-group input,
@@ -307,8 +299,25 @@
         
         .submit-button:hover {
             background: #1976D2;
-            border-color: #1976D2;
             box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+        }
+        
+        .payment-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #0f0f0f;
+            border-radius: 5px;
+            border: 1px solid #2196F3;
+        }
+        
+        .payment-info h3 {
+            color: #2196F3;
+            margin-bottom: 15px;
+        }
+        
+        .payment-info p {
+            color: #ccc;
+            margin: 10px 0;
         }
         
         footer {
@@ -327,64 +336,101 @@
             font-weight: bold;
             font-size: 18px;
         }
+        
+        .specs {
+            background: #000000;
+            padding: 60px 20px;
+        }
+        
+        .specs h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #2196F3;
+        }
+        
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .spec-item {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #2a2a2a;
+        }
+        
+        .spec-label {
+            font-weight: bold;
+            color: #2196F3;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
     <div class="promo-banner">
-        🎉 Special Launch Offer: 50% OFF First Week for Early Adopters! 🎉
+        🎉 Launch Offer: First Week 50% OFF! 🎉
     </div>
     
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo">⚡ GPU-Rent.Online</div>
-                <a href="#contact" class="cta-button" style="padding: 10px 25px; font-size: 16px;">Get Started</a>
+                <a href="#contact" class="cta-button" style="padding: 10px 25px; font-size: 16px;">Reserve Now</a>
             </div>
         </div>
     </header>
     
     <section class="hero">
         <div class="container">
-            <h1>Premium GPU Rentals</h1>
-            <p>Tesla P40 GPUs starting at $0.10/hour</p>
-            <a href="#pricing" class="cta-button">View Pricing</a>
+            <h1>Affordable GPU Rentals</h1>
+            <p>RTX 2060 from $0.10/hour • Instant Setup</p>
+            <a href="#availability" class="cta-button">Check Availability</a>
         </div>
     </section>
     
-    <section class="features">
+    <section id="availability" class="availability">
         <div class="container">
-            <h2>Why Choose Us?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">💰</div>
-                    <h3>Affordable Pricing</h3>
-                    <p>Starting at just $0.10/hour or save with monthly plans</p>
+            <h2>🟢 Real-Time GPU Availability</h2>
+            
+            <div class="gpu-grid">
+                <div class="gpu-card">
+                    <span class="gpu-status status-available"></span>
+                    <div class="gpu-name">RTX 2060 #1</div>
+                    <div class="gpu-specs">6GB VRAM • CUDA 12.4</div>
+                    <div class="gpu-specs" style="color: #4CAF50; margin-top: 10px;">AVAILABLE</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>High Performance</h3>
-                    <p>Tesla P40 with 24GB VRAM for demanding workloads</p>
+                
+                <div class="gpu-card">
+                    <span class="gpu-status status-available"></span>
+                    <div class="gpu-name">RTX 2060 #2</div>
+                    <div class="gpu-specs">6GB VRAM • CUDA 12.4</div>
+                    <div class="gpu-specs" style="color: #4CAF50; margin-top: 10px;">AVAILABLE</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
-                    <h3>Low Latency</h3>
-                    <p>Tunisia datacenter with excellent EMEA connectivity</p>
+                
+                <div class="gpu-card">
+                    <span class="gpu-status status-available"></span>
+                    <div class="gpu-name">RTX 2060 #3</div>
+                    <div class="gpu-specs">6GB VRAM • CUDA 12.4</div>
+                    <div class="gpu-specs" style="color: #4CAF50; margin-top: 10px;">AVAILABLE</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🛠️</div>
-                    <h3>Pre-configured</h3>
-                    <p>PyTorch, TensorFlow, and CUDA ready to use</p>
+                
+                <div class="gpu-card">
+                    <span class="gpu-status status-available"></span>
+                    <div class="gpu-name">RTX 2060 #4</div>
+                    <div class="gpu-specs">6GB VRAM • CUDA 12.4</div>
+                    <div class="gpu-specs" style="color: #4CAF50; margin-top: 10px;">AVAILABLE</div>
                 </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💬</div>
-                    <h3>24/7 Support</h3>
-                    <p>Email, WhatsApp, and Telegram support available</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Secure Access</h3>
-                    <p>SSH and Docker with full root privileges</p>
-                </div>
+            </div>
+            
+            <div style="text-align: center; color: #999;">
+                <p>✨ All 4 GPUs currently available</p>
+                <p style="margin-top: 10px;">Last updated: Real-time • Tunisia Datacenter</p>
             </div>
         </div>
     </section>
@@ -394,47 +440,46 @@
             <h2>Choose Your Package</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="package-name">Package A - Student</div>
+                    <div class="package-name">Single GPU</div>
                     <div class="price">$0.10<span style="font-size: 18px;">/hour</span></div>
                     <div class="price-detail">or $70/month (save 30%)</div>
                     <ul class="features-list">
-                        <li>1x Tesla P40 (24GB VRAM)</li>
-                        <li>PyTorch & TensorFlow pre-installed</li>
+                        <li>1x RTX 2060 (6GB VRAM)</li>
+                        <li>PyTorch & TensorFlow ready</li>
                         <li>SSH & Docker access</li>
                         <li>Email support</li>
                         <li>10TB bandwidth</li>
                     </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
+                    <a href="#contact" class="cta-button">Reserve</a>
                 </div>
                 
                 <div class="pricing-card featured">
                     <span class="badge">POPULAR</span>
-                    <div class="package-name">Package B - Startup</div>
-                    <div class="price">$0.12<span style="font-size: 18px;">/hour</span></div>
-                    <div class="price-detail">or $135/month (save 25%)</div>
+                    <div class="package-name">Dual GPU</div>
+                    <div class="price">$0.18<span style="font-size: 18px;">/hour</span></div>
+                    <div class="price-detail">or $130/month (save 25%)</div>
                     <ul class="features-list">
-                        <li>2x Tesla P40 (48GB VRAM)</li>
+                        <li>2x RTX 2060 (12GB VRAM)</li>
                         <li>Custom environment setup</li>
                         <li>Root access</li>
-                        <li>Priority support (WhatsApp/Telegram)</li>
+                        <li>Priority support</li>
                         <li>20TB bandwidth</li>
                     </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
+                    <a href="#contact" class="cta-button">Reserve</a>
                 </div>
                 
                 <div class="pricing-card">
-                    <div class="package-name">Package C - Pro</div>
-                    <div class="price">$0.15<span style="font-size: 18px;">/hour</span></div>
-                    <div class="price-detail">or $200/month (save 20%)</div>
+                    <div class="package-name">Quad GPU</div>
+                    <div class="price">$0.35<span style="font-size: 18px;">/hour</span></div>
+                    <div class="price-detail">or $250/month (save 20%)</div>
                     <ul class="features-list">
-                        <li>3x Tesla P40 (72GB VRAM)</li>
+                        <li>4x RTX 2060 (24GB VRAM)</li>
                         <li>Full customization</li>
                         <li>95% SLA guarantee</li>
-                        <li>24/7 priority support</li>
+                        <li>24/7 support</li>
                         <li>Unlimited bandwidth</li>
-                        <li>Backup & snapshots included</li>
                     </ul>
-                    <a href="#contact" class="cta-button">Get Started</a>
+                    <a href="#contact" class="cta-button">Reserve</a>
                 </div>
             </div>
         </div>
@@ -446,19 +491,15 @@
             <div class="specs-grid">
                 <div class="spec-item">
                     <div class="spec-label">GPU Model</div>
-                    <div>NVIDIA Tesla P40</div>
+                    <div>NVIDIA RTX 2060</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">VRAM</div>
-                    <div>24GB GDDR5</div>
+                    <div>6GB GDDR6</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">CUDA Cores</div>
-                    <div>3840</div>
-                </div>
-                <div class="spec-item">
-                    <div class="spec-label">Performance</div>
-                    <div>9.4 TFLOPS</div>
+                    <div>1920</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">Max CUDA</div>
@@ -466,11 +507,15 @@
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">CPU</div>
-                    <div>Xeon E5-2640 v4</div>
+                    <div>Xeon E5 Series</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">Network</div>
                     <div>80 Mbps up/down</div>
+                </div>
+                <div class="spec-item">
+                    <div class="spec-label">Storage</div>
+                    <div>NVMe SSD</div>
                 </div>
                 <div class="spec-item">
                     <div class="spec-label">Location</div>
@@ -482,7 +527,7 @@
     
     <section id="contact" class="contact">
         <div class="container">
-            <h2>Get Started Today</h2>
+            <h2>Reserve Your GPU Now</h2>
             <div class="contact-form">
                 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                     <div class="form-group">
@@ -496,27 +541,40 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="package">Package Interest *</label>
+                        <label for="package">Package *</label>
                         <select id="package" name="package" required>
-                            <option value="">Select a package</option>
-                            <option value="Package A">Package A - Student ($70/month)</option>
-                            <option value="Package B">Package B - Startup ($135/month)</option>
-                            <option value="Package C">Package C - Pro ($200/month)</option>
-                            <option value="Custom">Custom Requirements</option>
+                            <option value="">Select package</option>
+                            <option value="1 GPU">1 GPU - $0.10/h or $70/month</option>
+                            <option value="2 GPUs">2 GPUs - $0.18/h or $130/month</option>
+                            <option value="4 GPUs">4 GPUs - $0.35/h or $250/month</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message</label>
+                        <label for="duration">Duration</label>
+                        <select id="duration" name="duration">
+                            <option value="hourly">Hourly</option>
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
                         <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-button">Send Inquiry</button>
+                    <button type="submit" class="submit-button">Submit Request</button>
                 </form>
                 
-                <div style="margin-top: 30px; text-align: center;">
-                    <p><strong>Email:</strong> sandrasandrita@gmail.com</p>
-                    <p><strong>Response Time:</strong> Within 24 hours</p>
+                <div class="payment-info">
+                    <h3>💳 How It Works:</h3>
+                    <p><strong>1.</strong> Submit this form</p>
+                    <p><strong>2.</strong> We'll send you payment instructions via email</p>
+                    <p><strong>3.</strong> Pay via PayPal: <strong>djamel.sinacer@gmail.com</strong></p>
+                    <p><strong>4.</strong> Get SSH access within 10 minutes</p>
+                    <p style="margin-top: 20px; color: #4CAF50;"><strong>⚡ Response time: &lt;1 hour</strong></p>
                 </div>
             </div>
         </div>
@@ -524,8 +582,9 @@
     
     <footer>
         <div class="container">
-            <p>&copy; 2025 GPU-Rent.Online - Premium GPU Rental Services</p>
+            <p>&copy; 2025 GPU-Rent.Online - Affordable GPU Rental Services</p>
             <p>Tunisia • Europe • Worldwide</p>
+            <p style="margin-top: 10px;">Contact: sandrasandrita@gmail.com</p>
         </div>
     </footer>
 </body>
